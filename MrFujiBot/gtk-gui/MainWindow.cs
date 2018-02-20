@@ -7,15 +7,15 @@ public partial class MainWindow
 
 	private global::Gtk.Label TitleLabel;
 
-	private global::Gtk.Label OAuthLabel;
+	private global::Gtk.Label AccessTokenLabel;
 
-	private global::Gtk.Entry OAuthEntry;
+	private global::Gtk.Entry AccessTokenEntry;
 
 	private global::Gtk.Button StartButton;
 
 	private global::Gtk.Button StopButton;
 
-	private global::Gtk.Entry entry3;
+	private global::Gtk.Entry StatusEntry;
 
 	private global::Gtk.Button AddUserButton;
 
@@ -29,9 +29,13 @@ public partial class MainWindow
 
 	private global::Gtk.TreeView UserList;
 
-	private global::Gtk.Label label6;
+	private global::Gtk.Label UsernameLabel;
+
+	private global::Gtk.Entry UsernameEntry;
 
 	private global::Gtk.Entry ChannelEntry;
+
+	private global::Gtk.Label ChannelLabel;
 
 	protected virtual void Build()
 	{
@@ -53,23 +57,23 @@ public partial class MainWindow
 		w1.X = 15;
 		w1.Y = 15;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.OAuthLabel = new global::Gtk.Label();
-		this.OAuthLabel.Name = "OAuthLabel";
-		this.OAuthLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Twitch Chat OAuth Password:");
-		this.fixed1.Add(this.OAuthLabel);
-		global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.OAuthLabel]));
+		this.AccessTokenLabel = new global::Gtk.Label();
+		this.AccessTokenLabel.Name = "AccessTokenLabel";
+		this.AccessTokenLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Access Token:");
+		this.fixed1.Add(this.AccessTokenLabel);
+		global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.AccessTokenLabel]));
 		w2.X = 15;
 		w2.Y = 75;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.OAuthEntry = new global::Gtk.Entry();
-		this.OAuthEntry.CanFocus = true;
-		this.OAuthEntry.Name = "OAuthEntry";
-		this.OAuthEntry.IsEditable = true;
-		this.OAuthEntry.WidthChars = 40;
-		this.OAuthEntry.InvisibleChar = '●';
-		this.fixed1.Add(this.OAuthEntry);
-		global::Gtk.Fixed.FixedChild w3 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.OAuthEntry]));
-		w3.X = 195;
+		this.AccessTokenEntry = new global::Gtk.Entry();
+		this.AccessTokenEntry.CanFocus = true;
+		this.AccessTokenEntry.Name = "AccessTokenEntry";
+		this.AccessTokenEntry.IsEditable = true;
+		this.AccessTokenEntry.WidthChars = 17;
+		this.AccessTokenEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.AccessTokenEntry);
+		global::Gtk.Fixed.FixedChild w3 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.AccessTokenEntry]));
+		w3.X = 155;
 		w3.Y = 70;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.StartButton = new global::Gtk.Button();
@@ -94,17 +98,17 @@ public partial class MainWindow
 		w5.X = 120;
 		w5.Y = 105;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.entry3 = new global::Gtk.Entry();
-		this.entry3.CanFocus = true;
-		this.entry3.Name = "entry3";
-		this.entry3.Text = global::Mono.Unix.Catalog.GetString("Stopped");
-		this.entry3.IsEditable = false;
-		this.entry3.WidthChars = 10;
-		this.entry3.InvisibleChar = '●';
-		this.fixed1.Add(this.entry3);
-		global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.entry3]));
+		this.StatusEntry = new global::Gtk.Entry();
+		this.StatusEntry.CanFocus = true;
+		this.StatusEntry.Name = "StatusEntry";
+		this.StatusEntry.Text = global::Mono.Unix.Catalog.GetString("Stopped");
+		this.StatusEntry.IsEditable = false;
+		this.StatusEntry.WidthChars = 15;
+		this.StatusEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.StatusEntry);
+		global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.StatusEntry]));
 		w6.X = 265;
-		w6.Y = 109;
+		w6.Y = 108;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.AddUserButton = new global::Gtk.Button();
 		this.AddUserButton.WidthRequest = 120;
@@ -136,7 +140,7 @@ public partial class MainWindow
 		this.AutoStartCheckbox.UseUnderline = true;
 		this.fixed1.Add(this.AutoStartCheckbox);
 		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.AutoStartCheckbox]));
-		w9.X = 381;
+		w9.X = 400;
 		w9.Y = 109;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.GenerationBox = global::Gtk.ComboBox.NewText();
@@ -173,35 +177,55 @@ public partial class MainWindow
 		w12.X = 25;
 		w12.Y = 161;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.label6 = new global::Gtk.Label();
-		this.label6.Name = "label6";
-		this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("Twitch Channel Username:");
-		this.fixed1.Add(this.label6);
-		global::Gtk.Fixed.FixedChild w13 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label6]));
+		this.UsernameLabel = new global::Gtk.Label();
+		this.UsernameLabel.Name = "UsernameLabel";
+		this.UsernameLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Twitch Bot Username:");
+		this.fixed1.Add(this.UsernameLabel);
+		global::Gtk.Fixed.FixedChild w13 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.UsernameLabel]));
 		w13.X = 15;
 		w13.Y = 45;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.UsernameEntry = new global::Gtk.Entry();
+		this.UsernameEntry.CanFocus = true;
+		this.UsernameEntry.Name = "UsernameEntry";
+		this.UsernameEntry.IsEditable = true;
+		this.UsernameEntry.WidthChars = 17;
+		this.UsernameEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.UsernameEntry);
+		global::Gtk.Fixed.FixedChild w14 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.UsernameEntry]));
+		w14.X = 155;
+		w14.Y = 40;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.ChannelEntry = new global::Gtk.Entry();
 		this.ChannelEntry.CanFocus = true;
 		this.ChannelEntry.Name = "ChannelEntry";
 		this.ChannelEntry.IsEditable = true;
-		this.ChannelEntry.WidthChars = 40;
+		this.ChannelEntry.WidthChars = 17;
 		this.ChannelEntry.InvisibleChar = '●';
 		this.fixed1.Add(this.ChannelEntry);
-		global::Gtk.Fixed.FixedChild w14 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.ChannelEntry]));
-		w14.X = 195;
-		w14.Y = 40;
+		global::Gtk.Fixed.FixedChild w15 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.ChannelEntry]));
+		w15.X = 410;
+		w15.Y = 40;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.ChannelLabel = new global::Gtk.Label();
+		this.ChannelLabel.Name = "ChannelLabel";
+		this.ChannelLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Twitch Channel:");
+		this.fixed1.Add(this.ChannelLabel);
+		global::Gtk.Fixed.FixedChild w16 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.ChannelLabel]));
+		w16.X = 305;
+		w16.Y = 46;
 		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 506;
+		this.DefaultWidth = 561;
 		this.DefaultHeight = 265;
 		this.GenerationBox.HasDefault = true;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
-		this.AddUserButton.Clicked += new global::System.EventHandler(this.onAddUserClick);
-		this.RemoveUserButton.Clicked += new global::System.EventHandler(this.onRemoveUserClick);
+		this.StartButton.Clicked += new global::System.EventHandler(this.OnStartClick);
+		this.StopButton.Clicked += new global::System.EventHandler(this.OnStopClick);
+		this.RemoveUserButton.Clicked += new global::System.EventHandler(this.OnRemoveUserClick);
 	}
 }

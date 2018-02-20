@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/MrFujiBot.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="506 265">
+  <widget class="Gtk.Window" id="MainWindow" design-size="561 265">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Mr. Fuji Bot</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -27,9 +27,9 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="OAuthLabel">
+          <widget class="Gtk.Label" id="AccessTokenLabel">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Twitch Chat OAuth Password:</property>
+            <property name="LabelProp" translatable="yes">Access Token:</property>
           </widget>
           <packing>
             <property name="X">15</property>
@@ -37,15 +37,15 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Entry" id="OAuthEntry">
+          <widget class="Gtk.Entry" id="AccessTokenEntry">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
-            <property name="WidthChars">40</property>
+            <property name="WidthChars">17</property>
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="X">195</property>
+            <property name="X">155</property>
             <property name="Y">70</property>
           </packing>
         </child>
@@ -57,6 +57,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Start</property>
             <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnStartClick" />
           </widget>
           <packing>
             <property name="X">15</property>
@@ -71,6 +72,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Stop</property>
             <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnStopClick" />
           </widget>
           <packing>
             <property name="X">120</property>
@@ -78,17 +80,17 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Entry" id="entry3">
+          <widget class="Gtk.Entry" id="StatusEntry">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="Text" translatable="yes">Stopped</property>
             <property name="IsEditable">False</property>
-            <property name="WidthChars">10</property>
+            <property name="WidthChars">15</property>
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="X">265</property>
-            <property name="Y">109</property>
+            <property name="Y">108</property>
           </packing>
         </child>
         <child>
@@ -99,7 +101,6 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Add User</property>
             <property name="UseUnderline">True</property>
-            <signal name="Clicked" handler="onAddUserClick" />
           </widget>
           <packing>
             <property name="X">197</property>
@@ -114,7 +115,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Remove User</property>
             <property name="UseUnderline">True</property>
-            <signal name="Clicked" handler="onRemoveUserClick" />
+            <signal name="Clicked" handler="OnRemoveUserClick" />
           </widget>
           <packing>
             <property name="X">197</property>
@@ -131,7 +132,7 @@
             <property name="UseUnderline">True</property>
           </widget>
           <packing>
-            <property name="X">381</property>
+            <property name="X">400</property>
             <property name="Y">109</property>
           </packing>
         </child>
@@ -178,9 +179,9 @@ Generation 7</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label6">
+          <widget class="Gtk.Label" id="UsernameLabel">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Twitch Channel Username:</property>
+            <property name="LabelProp" translatable="yes">Twitch Bot Username:</property>
           </widget>
           <packing>
             <property name="X">15</property>
@@ -188,16 +189,39 @@ Generation 7</property>
           </packing>
         </child>
         <child>
+          <widget class="Gtk.Entry" id="UsernameEntry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="WidthChars">17</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">155</property>
+            <property name="Y">40</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.Entry" id="ChannelEntry">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
-            <property name="WidthChars">40</property>
+            <property name="WidthChars">17</property>
             <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="X">195</property>
+            <property name="X">410</property>
             <property name="Y">40</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="ChannelLabel">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Twitch Channel:</property>
+          </widget>
+          <packing>
+            <property name="X">305</property>
+            <property name="Y">46</property>
           </packing>
         </child>
       </widget>
