@@ -9,19 +9,13 @@ public partial class MainWindow
 
 	private global::Gtk.Label OAuthLabel;
 
-	private global::Gtk.Entry entry1;
+	private global::Gtk.Entry OAuthEntry;
 
 	private global::Gtk.Button StartButton;
 
 	private global::Gtk.Button StopButton;
 
-	private global::Gtk.Label StatusLabel;
-
 	private global::Gtk.Entry entry3;
-
-	private global::Gtk.ScrolledWindow GtkScrolledWindow;
-
-	private global::Gtk.TreeView UserList;
 
 	private global::Gtk.Button AddUserButton;
 
@@ -30,6 +24,14 @@ public partial class MainWindow
 	private global::Gtk.CheckButton AutoStartCheckbox;
 
 	private global::Gtk.ComboBox GenerationBox;
+
+	private global::Gtk.ScrolledWindow GtkScrolledWindow;
+
+	private global::Gtk.TreeView UserList;
+
+	private global::Gtk.Label label6;
+
+	private global::Gtk.Entry ChannelEntry;
 
 	protected virtual void Build()
 	{
@@ -57,17 +59,18 @@ public partial class MainWindow
 		this.fixed1.Add(this.OAuthLabel);
 		global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.OAuthLabel]));
 		w2.X = 15;
-		w2.Y = 45;
+		w2.Y = 75;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.entry1 = new global::Gtk.Entry();
-		this.entry1.CanFocus = true;
-		this.entry1.Name = "entry1";
-		this.entry1.IsEditable = true;
-		this.entry1.WidthChars = 40;
-		this.fixed1.Add(this.entry1);
-		global::Gtk.Fixed.FixedChild w3 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.entry1]));
+		this.OAuthEntry = new global::Gtk.Entry();
+		this.OAuthEntry.CanFocus = true;
+		this.OAuthEntry.Name = "OAuthEntry";
+		this.OAuthEntry.IsEditable = true;
+		this.OAuthEntry.WidthChars = 40;
+		this.OAuthEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.OAuthEntry);
+		global::Gtk.Fixed.FixedChild w3 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.OAuthEntry]));
 		w3.X = 195;
-		w3.Y = 40;
+		w3.Y = 70;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.StartButton = new global::Gtk.Button();
 		this.StartButton.WidthRequest = 100;
@@ -78,7 +81,7 @@ public partial class MainWindow
 		this.fixed1.Add(this.StartButton);
 		global::Gtk.Fixed.FixedChild w4 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.StartButton]));
 		w4.X = 15;
-		w4.Y = 75;
+		w4.Y = 105;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.StopButton = new global::Gtk.Button();
 		this.StopButton.WidthRequest = 100;
@@ -89,15 +92,7 @@ public partial class MainWindow
 		this.fixed1.Add(this.StopButton);
 		global::Gtk.Fixed.FixedChild w5 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.StopButton]));
 		w5.X = 120;
-		w5.Y = 75;
-		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.StatusLabel = new global::Gtk.Label();
-		this.StatusLabel.Name = "StatusLabel";
-		this.StatusLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Status:");
-		this.fixed1.Add(this.StatusLabel);
-		global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.StatusLabel]));
-		w6.X = 240;
-		w6.Y = 83;
+		w5.Y = 105;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.entry3 = new global::Gtk.Entry();
 		this.entry3.CanFocus = true;
@@ -105,27 +100,11 @@ public partial class MainWindow
 		this.entry3.Text = global::Mono.Unix.Catalog.GetString("Stopped");
 		this.entry3.IsEditable = false;
 		this.entry3.WidthChars = 10;
+		this.entry3.InvisibleChar = '●';
 		this.fixed1.Add(this.entry3);
-		global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.entry3]));
-		w7.X = 285;
-		w7.Y = 79;
-		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
-		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
-		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-		this.UserList = new global::Gtk.TreeView();
-		this.UserList.WidthRequest = 150;
-		this.UserList.CanFocus = true;
-		this.UserList.Name = "UserList";
-		this.UserList.FixedHeightMode = true;
-		this.UserList.HeadersVisible = false;
-		this.UserList.Reorderable = true;
-		this.GtkScrolledWindow.Add(this.UserList);
-		this.fixed1.Add(this.GtkScrolledWindow);
-		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.GtkScrolledWindow]));
-		w9.X = 25;
-		w9.Y = 131;
+		global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.entry3]));
+		w6.X = 265;
+		w6.Y = 109;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.AddUserButton = new global::Gtk.Button();
 		this.AddUserButton.WidthRequest = 120;
@@ -134,9 +113,9 @@ public partial class MainWindow
 		this.AddUserButton.UseUnderline = true;
 		this.AddUserButton.Label = global::Mono.Unix.Catalog.GetString("Add User");
 		this.fixed1.Add(this.AddUserButton);
-		global::Gtk.Fixed.FixedChild w10 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.AddUserButton]));
-		w10.X = 197;
-		w10.Y = 133;
+		global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.AddUserButton]));
+		w7.X = 197;
+		w7.Y = 163;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.RemoveUserButton = new global::Gtk.Button();
 		this.RemoveUserButton.WidthRequest = 120;
@@ -145,9 +124,9 @@ public partial class MainWindow
 		this.RemoveUserButton.UseUnderline = true;
 		this.RemoveUserButton.Label = global::Mono.Unix.Catalog.GetString("Remove User");
 		this.fixed1.Add(this.RemoveUserButton);
-		global::Gtk.Fixed.FixedChild w11 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.RemoveUserButton]));
-		w11.X = 197;
-		w11.Y = 160;
+		global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.RemoveUserButton]));
+		w8.X = 197;
+		w8.Y = 190;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.AutoStartCheckbox = new global::Gtk.CheckButton();
 		this.AutoStartCheckbox.CanFocus = true;
@@ -156,9 +135,9 @@ public partial class MainWindow
 		this.AutoStartCheckbox.DrawIndicator = true;
 		this.AutoStartCheckbox.UseUnderline = true;
 		this.fixed1.Add(this.AutoStartCheckbox);
-		global::Gtk.Fixed.FixedChild w12 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.AutoStartCheckbox]));
-		w12.X = 381;
-		w12.Y = 79;
+		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.AutoStartCheckbox]));
+		w9.X = 381;
+		w9.Y = 109;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.GenerationBox = global::Gtk.ComboBox.NewText();
 		this.GenerationBox.AppendText(global::Mono.Unix.Catalog.GetString("Generation 1"));
@@ -173,16 +152,52 @@ public partial class MainWindow
 		this.GenerationBox.Name = "GenerationBox";
 		this.GenerationBox.Active = 6;
 		this.fixed1.Add(this.GenerationBox);
-		global::Gtk.Fixed.FixedChild w13 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.GenerationBox]));
-		w13.X = 349;
-		w13.Y = 135;
+		global::Gtk.Fixed.FixedChild w10 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.GenerationBox]));
+		w10.X = 349;
+		w10.Y = 163;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
+		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
+		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
+		this.UserList = new global::Gtk.TreeView();
+		this.UserList.WidthRequest = 150;
+		this.UserList.CanFocus = true;
+		this.UserList.Name = "UserList";
+		this.UserList.FixedHeightMode = true;
+		this.UserList.HeadersVisible = false;
+		this.UserList.Reorderable = true;
+		this.GtkScrolledWindow.Add(this.UserList);
+		this.fixed1.Add(this.GtkScrolledWindow);
+		global::Gtk.Fixed.FixedChild w12 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.GtkScrolledWindow]));
+		w12.X = 25;
+		w12.Y = 161;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label6 = new global::Gtk.Label();
+		this.label6.Name = "label6";
+		this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("Twitch Channel Username:");
+		this.fixed1.Add(this.label6);
+		global::Gtk.Fixed.FixedChild w13 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label6]));
+		w13.X = 15;
+		w13.Y = 45;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.ChannelEntry = new global::Gtk.Entry();
+		this.ChannelEntry.CanFocus = true;
+		this.ChannelEntry.Name = "ChannelEntry";
+		this.ChannelEntry.IsEditable = true;
+		this.ChannelEntry.WidthChars = 40;
+		this.ChannelEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.ChannelEntry);
+		global::Gtk.Fixed.FixedChild w14 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.ChannelEntry]));
+		w14.X = 195;
+		w14.Y = 40;
 		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
 		this.DefaultWidth = 506;
-		this.DefaultHeight = 232;
+		this.DefaultHeight = 265;
 		this.GenerationBox.HasDefault = true;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);

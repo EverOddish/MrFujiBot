@@ -6,9 +6,8 @@
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/MrFujiBot.exe" internal="true" />
-    <widget-library name="../../../../../../Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.GtkCore/libstetic.dll" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="506 232">
+  <widget class="Gtk.Window" id="MainWindow" design-size="506 265">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Mr. Fuji Bot</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -34,19 +33,20 @@
           </widget>
           <packing>
             <property name="X">15</property>
-            <property name="Y">45</property>
+            <property name="Y">75</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Entry" id="entry1">
+          <widget class="Gtk.Entry" id="OAuthEntry">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
             <property name="WidthChars">40</property>
+            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
             <property name="X">195</property>
-            <property name="Y">40</property>
+            <property name="Y">70</property>
           </packing>
         </child>
         <child>
@@ -60,7 +60,7 @@
           </widget>
           <packing>
             <property name="X">15</property>
-            <property name="Y">75</property>
+            <property name="Y">105</property>
           </packing>
         </child>
         <child>
@@ -74,17 +74,7 @@
           </widget>
           <packing>
             <property name="X">120</property>
-            <property name="Y">75</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="StatusLabel">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Status:</property>
-          </widget>
-          <packing>
-            <property name="X">240</property>
-            <property name="Y">83</property>
+            <property name="Y">105</property>
           </packing>
         </child>
         <child>
@@ -94,31 +84,11 @@
             <property name="Text" translatable="yes">Stopped</property>
             <property name="IsEditable">False</property>
             <property name="WidthChars">10</property>
+            <property name="InvisibleChar">●</property>
           </widget>
           <packing>
-            <property name="X">285</property>
-            <property name="Y">79</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
-            <property name="MemberName" />
-            <property name="ShadowType">In</property>
-            <child>
-              <widget class="Gtk.TreeView" id="UserList">
-                <property name="MemberName" />
-                <property name="WidthRequest">150</property>
-                <property name="CanFocus">True</property>
-                <property name="ShowScrollbars">True</property>
-                <property name="FixedHeightMode">True</property>
-                <property name="HeadersVisible">False</property>
-                <property name="Reorderable">True</property>
-              </widget>
-            </child>
-          </widget>
-          <packing>
-            <property name="X">25</property>
-            <property name="Y">131</property>
+            <property name="X">265</property>
+            <property name="Y">109</property>
           </packing>
         </child>
         <child>
@@ -133,7 +103,7 @@
           </widget>
           <packing>
             <property name="X">197</property>
-            <property name="Y">133</property>
+            <property name="Y">163</property>
           </packing>
         </child>
         <child>
@@ -148,7 +118,7 @@
           </widget>
           <packing>
             <property name="X">197</property>
-            <property name="Y">160</property>
+            <property name="Y">190</property>
           </packing>
         </child>
         <child>
@@ -162,7 +132,7 @@
           </widget>
           <packing>
             <property name="X">381</property>
-            <property name="Y">79</property>
+            <property name="Y">109</property>
           </packing>
         </child>
         <child>
@@ -183,7 +153,51 @@ Generation 7</property>
           </widget>
           <packing>
             <property name="X">349</property>
-            <property name="Y">135</property>
+            <property name="Y">163</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TreeView" id="UserList">
+                <property name="MemberName" />
+                <property name="WidthRequest">150</property>
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <property name="FixedHeightMode">True</property>
+                <property name="HeadersVisible">False</property>
+                <property name="Reorderable">True</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">25</property>
+            <property name="Y">161</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label6">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Twitch Channel Username:</property>
+          </widget>
+          <packing>
+            <property name="X">15</property>
+            <property name="Y">45</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="ChannelEntry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="WidthChars">40</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">195</property>
+            <property name="Y">40</property>
           </packing>
         </child>
       </widget>
