@@ -119,6 +119,8 @@ public partial class MainWindow
 		this.UserList.CanFocus = true;
 		this.UserList.Name = "UserList";
 		this.UserList.FixedHeightMode = true;
+		this.UserList.HeadersVisible = false;
+		this.UserList.Reorderable = true;
 		this.GtkScrolledWindow.Add(this.UserList);
 		this.fixed1.Add(this.GtkScrolledWindow);
 		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.GtkScrolledWindow]));
@@ -184,5 +186,7 @@ public partial class MainWindow
 		this.GenerationBox.HasDefault = true;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
+		this.AddUserButton.Clicked += new global::System.EventHandler(this.onAddUserClick);
+		this.RemoveUserButton.Clicked += new global::System.EventHandler(this.onRemoveUserClick);
 	}
 }

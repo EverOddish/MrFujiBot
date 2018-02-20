@@ -111,6 +111,8 @@
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
                 <property name="FixedHeightMode">True</property>
+                <property name="HeadersVisible">False</property>
+                <property name="Reorderable">True</property>
               </widget>
             </child>
           </widget>
@@ -127,6 +129,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Add User</property>
             <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="onAddUserClick" />
           </widget>
           <packing>
             <property name="X">197</property>
@@ -141,6 +144,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Remove User</property>
             <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="onRemoveUserClick" />
           </widget>
           <packing>
             <property name="X">197</property>
