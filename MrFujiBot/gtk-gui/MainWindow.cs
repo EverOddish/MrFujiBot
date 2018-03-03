@@ -224,9 +224,14 @@ public partial class MainWindow
 		this.GenerationBox.HasDefault = true;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
+		this.AccessTokenEntry.FocusOutEvent += new global::Gtk.FocusOutEventHandler(this.OnAccessTokenLostFocus);
 		this.StartButton.Clicked += new global::System.EventHandler(this.OnStartClick);
 		this.StopButton.Clicked += new global::System.EventHandler(this.OnStopClick);
 		this.AddUserButton.Clicked += new global::System.EventHandler(this.OnAddUserClick);
 		this.RemoveUserButton.Clicked += new global::System.EventHandler(this.OnRemoveUserClick);
+		this.AutoStartCheckbox.Toggled += new global::System.EventHandler(this.OnAutoStartToggle);
+		this.GenerationBox.Changed += new global::System.EventHandler(this.OnGenerationChanged);
+		this.UsernameEntry.FocusOutEvent += new global::Gtk.FocusOutEventHandler(this.OnBotUsernameLostFocus);
+		this.ChannelEntry.FocusOutEvent += new global::Gtk.FocusOutEventHandler(this.OnChannelLostFocus);
 	}
 }

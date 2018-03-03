@@ -29,6 +29,14 @@ public partial class MainWindow : Gtk.Window
 
         PopulateSettings();
         PopulateFields();
+
+        if(null != settings.auto_start)
+        {
+            if(1 == (int)settings.auto_start)
+            {
+                StartBot();
+            }
+        }
     }
 
     private void PopulateSettings()
@@ -37,7 +45,7 @@ public partial class MainWindow : Gtk.Window
 
         try
         {
-            json = System.IO.File.ReadAllText(@"settings.json");
+            json = System.IO.File.ReadAllText("settings.json");
             settings = JObject.Parse(json);
         }
         catch(FileNotFoundException)
@@ -50,17 +58,40 @@ public partial class MainWindow : Gtk.Window
     private void PersistSettings()
     {
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(settings);
-        System.IO.File.WriteAllText(@"settings.json", json);
+        System.IO.File.WriteAllText("settings.json", json);
     }
 
     private void PopulateFields()
     {
+        if(null != settings.bot_username)
+        {
+            UsernameEntry.Text = settings.bot_username;
+        }
+
+        if(null != settings.channel)
+        {
+            ChannelEntry.Text = settings.channel;
+        }
+
+        if (null != settings.access_token)
+        {
+            AccessTokenEntry.Text = settings.access_token;
+        }
+
         if(null != settings.permitted_users)
         {
             foreach(string user in settings.permitted_users)
             {
                 ((Gtk.ListStore)(this.UserList.Model)).AppendValues(user);
             }
+        }
+
+        if(null != settings.generation)
+        {
+            int gen = (int)settings.generation - 1;
+            Gtk.TreeIter iter;
+            GenerationBox.Model.IterNthChild(out iter, gen);
+            GenerationBox.SetActiveIter(iter);
         }
     }
 
@@ -118,7 +149,7 @@ public partial class MainWindow : Gtk.Window
         }
     }
 
-    protected void OnStartClick(object sender, EventArgs e)
+    private void StartBot()
     {
         if (null == bot)
         {
@@ -145,6 +176,11 @@ public partial class MainWindow : Gtk.Window
                 }
             }
         }
+    }
+
+    protected void OnStartClick(object sender, EventArgs e)
+    {
+        StartBot();
     }
 
     protected void OnStopClick(object sender, EventArgs e)
@@ -175,7 +211,33 @@ public partial class MainWindow : Gtk.Window
         }
     }
 
-    protected void OnAddUserClicked(object sender, EventArgs e)
+    protected void OnBotUsernameLostFocus(object sender, EventArgs e)
     {
+        settings.bot_username = UsernameEntry.Text;
+        PersistSettings();
+    }
+
+    protected void OnChannelLostFocus(object o, FocusOutEventArgs args)
+    {
+        settings.channel = ChannelEntry.Text;
+        PersistSettings();
+    }
+
+    protected void OnAccessTokenLostFocus(object o, FocusOutEventArgs args)
+    {
+        settings.access_token = AccessTokenEntry.Text;
+        PersistSettings();
+    }
+
+    protected void OnGenerationChanged(object sender, EventArgs e)
+    {
+        settings.generation = Int32.Parse(GenerationBox.ActiveText.Split(' ')[1]);
+        PersistSettings();
+    }
+
+    protected void OnAutoStartToggle(object sender, EventArgs e)
+    {
+        settings.auto_start = AutoStartCheckbox.Active ? 1 : 0;
+        PersistSettings();
     }
 }

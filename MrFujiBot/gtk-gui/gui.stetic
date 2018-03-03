@@ -43,6 +43,7 @@
             <property name="IsEditable">True</property>
             <property name="WidthChars">17</property>
             <property name="InvisibleChar">●</property>
+            <signal name="FocusOutEvent" handler="OnAccessTokenLostFocus" />
           </widget>
           <packing>
             <property name="X">155</property>
@@ -131,6 +132,7 @@
             <property name="DrawIndicator">True</property>
             <property name="HasLabel">True</property>
             <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnAutoStartToggle" />
           </widget>
           <packing>
             <property name="X">400</property>
@@ -152,6 +154,7 @@ Generation 5
 Generation 6
 Generation 7</property>
             <property name="Active">6</property>
+            <signal name="Changed" handler="OnGenerationChanged" />
           </widget>
           <packing>
             <property name="X">349</property>
@@ -196,6 +199,7 @@ Generation 7</property>
             <property name="IsEditable">True</property>
             <property name="WidthChars">17</property>
             <property name="InvisibleChar">●</property>
+            <signal name="FocusOutEvent" handler="OnBotUsernameLostFocus" />
           </widget>
           <packing>
             <property name="X">155</property>
@@ -209,6 +213,7 @@ Generation 7</property>
             <property name="IsEditable">True</property>
             <property name="WidthChars">17</property>
             <property name="InvisibleChar">●</property>
+            <signal name="FocusOutEvent" handler="OnChannelLostFocus" />
           </widget>
           <packing>
             <property name="X">410</property>
