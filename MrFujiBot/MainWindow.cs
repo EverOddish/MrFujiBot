@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using Gtk;
+using Newtonsoft.Json.Linq;
 using MrFujiBot;
 
 public partial class MainWindow : Gtk.Window
@@ -7,6 +9,7 @@ public partial class MainWindow : Gtk.Window
     TwitchBot bot = null;
     FujiDatabase database = null;
     FujiTextHandler textHandler = null;
+    dynamic settings;
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
@@ -23,6 +26,42 @@ public partial class MainWindow : Gtk.Window
 
         this.UserList.Model = new Gtk.ListStore(typeof(string));
         this.UserList.AppendColumn(column);
+
+        PopulateSettings();
+        PopulateFields();
+    }
+
+    private void PopulateSettings()
+    {
+        string json;
+
+        try
+        {
+            json = System.IO.File.ReadAllText(@"settings.json");
+            settings = JObject.Parse(json);
+        }
+        catch(FileNotFoundException)
+        {
+            settings = new JObject();
+            settings.permitted_users = new JArray();
+        }
+    }
+
+    private void PersistSettings()
+    {
+        string json = Newtonsoft.Json.JsonConvert.SerializeObject(settings);
+        System.IO.File.WriteAllText(@"settings.json", json);
+    }
+
+    private void PopulateFields()
+    {
+        if(null != settings.permitted_users)
+        {
+            foreach(string user in settings.permitted_users)
+            {
+                ((Gtk.ListStore)(this.UserList.Model)).AppendValues(user);
+            }
+        }
     }
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -54,6 +93,9 @@ public partial class MainWindow : Gtk.Window
         string username = userEntry.Text;
         ((Gtk.ListStore) (this.UserList.Model)).AppendValues(username);
 
+        settings.permitted_users.Add(username);
+        PersistSettings();
+
         dialog.Destroy();
     }
 
@@ -61,7 +103,19 @@ public partial class MainWindow : Gtk.Window
     {
         TreeIter iter;
         this.UserList.Selection.GetSelected(out iter);
+        string username = (string)this.UserList.Model.GetValue(iter, 0);
         ((Gtk.ListStore)(this.UserList.Model)).Remove(ref iter);
+
+        JArray children = (JArray)settings.permitted_users;
+        foreach(JToken child in children)
+        {
+            if(child.ToString().Equals(username))
+            {
+                settings.permitted_users.Remove(child);
+                PersistSettings();
+                break;
+            }
+        }
     }
 
     protected void OnStartClick(object sender, EventArgs e)
