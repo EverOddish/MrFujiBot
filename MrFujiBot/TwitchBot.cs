@@ -16,7 +16,7 @@ namespace MrFujiBot
             public TwitchBotStatus Status { get; set; }
         }
 
-        private TwitchClient client;
+        public TwitchClient client;
         public event StatusHandler StatusEvent;
         public delegate void StatusHandler(TwitchBot b, TwitchBot.StatusArgs e);
 
@@ -29,7 +29,6 @@ namespace MrFujiBot
             client.OnDisconnected += OnDisconnected;
             client.OnConnectionError += OnConnectionError;
             client.OnIncorrectLogin += OnIncorrectLogin;
-            client.OnMessageReceived += OnMessageReceived;
             client.Connect();
         }
 
@@ -64,10 +63,6 @@ namespace MrFujiBot
             StatusArgs status = new StatusArgs();
             status.Status = StatusArgs.TwitchBotStatus.IncorrectLogin;
             StatusEvent(this, status);
-        }
-
-        private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
-        {
         }
     }
 }

@@ -5,6 +5,8 @@ using MrFujiBot;
 public partial class MainWindow : Gtk.Window
 {
     TwitchBot bot = null;
+    FujiDatabase database = null;
+    FujiTextHandler textHandler = null;
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
@@ -29,7 +31,7 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
-    protected void onAddUserClick(object sender, EventArgs e)
+    protected void OnAddUserClick(object sender, EventArgs e)
     {
         Dialog dialog = new Dialog("Add User",
                                    this,
@@ -76,6 +78,12 @@ public partial class MainWindow : Gtk.Window
                                         AccessTokenEntry.Text,
                                         ChannelEntry.Text);
                     bot.StatusEvent += new TwitchBot.StatusHandler(OnTwitchBotStatus);
+
+                    database = new FujiDatabase();
+
+                    textHandler = new FujiTextHandler(bot,
+                                                      database,
+                                                      (Gtk.ListStore)(this.UserList.Model));
                 }
                 catch (Exception ex)
                 {
@@ -111,5 +119,9 @@ public partial class MainWindow : Gtk.Window
         {
             this.StatusEntry.Text = "Incorrect Login";
         }
+    }
+
+    protected void OnAddUserClicked(object sender, EventArgs e)
+    {
     }
 }

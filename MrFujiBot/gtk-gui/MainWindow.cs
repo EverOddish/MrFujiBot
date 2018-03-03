@@ -226,6 +226,7 @@ public partial class MainWindow
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.StartButton.Clicked += new global::System.EventHandler(this.OnStartClick);
 		this.StopButton.Clicked += new global::System.EventHandler(this.OnStopClick);
+		this.AddUserButton.Clicked += new global::System.EventHandler(this.OnAddUserClick);
 		this.RemoveUserButton.Clicked += new global::System.EventHandler(this.OnRemoveUserClick);
 	}
 }

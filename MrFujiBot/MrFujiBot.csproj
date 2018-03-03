@@ -98,9 +98,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwitchBot.cs" />
+    <Compile Include="FujiDatabase.cs" />
+    <Compile Include="FujiTextHandler.cs" />
+    <Compile Include="ITextHandler.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Commands\PokemonCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -101,6 +101,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Add User</property>
             <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnAddUserClick" />
           </widget>
           <packing>
             <property name="X">197</property>
