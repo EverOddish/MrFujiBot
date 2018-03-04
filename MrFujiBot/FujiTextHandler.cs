@@ -54,13 +54,17 @@ internal class FujiTextHandler
 
     private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
     {
-        // Call each handler
-        foreach(ITextHandler handler in this.TextHandlers)
+        if (UserIsPermitted(e.ChatMessage.DisplayName))
         {
-            if(UserIsPermitted(e.ChatMessage.DisplayName))
+            // Call each handler
+            foreach (ITextHandler handler in this.TextHandlers)
             {
-                handler.HandleText(e.ChatMessage.DisplayName,
-                                   e.ChatMessage.Message);
+                if( handler.HandleText(e.ChatMessage.DisplayName,
+                                       e.ChatMessage.Message) )
+                {
+                    // If a handler handled the message, don't call the rest.
+                    break;
+                }
             }
         }
     }

@@ -35,6 +35,7 @@ public partial class MainWindow : Gtk.Window
             if(1 == (int)settings.auto_start)
             {
                 StartBot();
+                AutoStartCheckbox.Active = true;
             }
         }
     }

@@ -7,11 +7,16 @@
         this.fujiTextHandler = fujiTextHandler;
     }
 
-    public void HandleText(string sourceUser, string text)
+    public bool HandleText(string sourceUser, string text)
     {
+        bool handled = false;
+
         if(text.StartsWith("!pokemon ", cmp))
         {
             fujiTextHandler.Output("Hello");
+            handled = true;
         }
+
+        return handled;
     }
 }
