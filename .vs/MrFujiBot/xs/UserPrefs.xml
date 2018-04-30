@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{61FDBE37-50B1-4BB1-B659-9B05CCCC3EA6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MrFujiBot/FujiDatabase.cs">
+    <Files>
+      <File FileName="MrFujiBot/Commands/PokemonCommand.cs" Line="39" Column="50" />
+      <File FileName="MrFujiBot/PokemonFactory.cs" Line="128" Column="40" />
+      <File FileName="MrFujiBot/Pokemon.cs" Line="18" Column="22" />
+      <File FileName="MrFujiBot/Util.cs" Line="6" Column="22" />
+      <File FileName="MrFujiBot/FujiTextHandler.cs" Line="63" Column="1" />
+      <File FileName="MrFujiBot/FujiDatabase.cs" Line="12" Column="39" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MrFujiBot" expanded="True">
+            <Node name="MrFujiBot" expanded="True">
+              <Node name="Commands" expanded="True" />
+              <Node name="FujiDatabase.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="MrFujiBot" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MrFujiBot PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

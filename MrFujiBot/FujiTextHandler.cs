@@ -11,6 +11,8 @@ internal class FujiTextHandler
     private Gtk.ListStore userList;
     private List<ITextHandler> textHandlers;
 
+    private PokemonFactory pokemonFactory;
+
     public FujiTextHandler(TwitchBot bot,
                            FujiDatabase database,
                            Gtk.ListStore userList)
@@ -24,12 +26,16 @@ internal class FujiTextHandler
 
         this.textHandlers = new List<ITextHandler>();
 
+        this.pokemonFactory = new PokemonFactory(database);
+
         registerTextHandlers();
     }
 
     private void registerTextHandlers()
     {
-        this.TextHandlers.Add(new PokemonCommand(this));
+        this.TextHandlers.Add(new PokemonCommand(pokemonFactory));
+
+        // ^^^^^ Add new command classes here ^^^^^
     }
 
     internal FujiDatabase Database { get => database; set => database = value; }
@@ -60,7 +66,8 @@ internal class FujiTextHandler
             foreach (ITextHandler handler in this.TextHandlers)
             {
                 if( handler.HandleText(e.ChatMessage.DisplayName,
-                                       e.ChatMessage.Message) )
+                                       e.ChatMessage.Message,
+                                       Output) )
                 {
                     // If a handler handled the message, don't call the rest.
                     break;
