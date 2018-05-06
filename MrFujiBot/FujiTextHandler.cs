@@ -12,6 +12,7 @@ internal class FujiTextHandler
     private List<ITextHandler> textHandlers;
 
     private PokemonFactory pokemonFactory;
+    private MoveFactory moveFactory;
 
     public FujiTextHandler(TwitchBot bot,
                            FujiDatabase database,
@@ -27,6 +28,7 @@ internal class FujiTextHandler
         this.textHandlers = new List<ITextHandler>();
 
         this.pokemonFactory = new PokemonFactory(database);
+        this.moveFactory = new MoveFactory(database);
 
         registerTextHandlers();
     }
@@ -34,6 +36,7 @@ internal class FujiTextHandler
     private void registerTextHandlers()
     {
         this.TextHandlers.Add(new PokemonCommand(pokemonFactory));
+        this.TextHandlers.Add(new MoveCommand(moveFactory));
 
         // ^^^^^ Add new command classes here ^^^^^
     }

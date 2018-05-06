@@ -105,10 +105,13 @@
     <Compile Include="FujiTextHandler.cs" />
     <Compile Include="ITextHandler.cs" />
     <Compile Include="Command.cs" />
-    <Compile Include="Commands\PokemonCommand.cs" />
-    <Compile Include="PokemonFactory.cs" />
-    <Compile Include="Pokemon.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="Commands\Pokemon\PokemonCommand.cs" />
+    <Compile Include="Commands\Pokemon\Pokemon.cs" />
+    <Compile Include="Commands\Pokemon\PokemonFactory.cs" />
+    <Compile Include="Commands\Move\Move.cs" />
+    <Compile Include="Commands\Move\MoveCommand.cs" />
+    <Compile Include="Commands\Move\MoveFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -119,6 +122,8 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Resources\" />
+    <Folder Include="Commands\Pokemon\" />
+    <Folder Include="Commands\Move\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

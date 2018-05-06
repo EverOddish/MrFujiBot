@@ -1,20 +1,24 @@
 ﻿<Properties StartupConfiguration="{61FDBE37-50B1-4BB1-B659-9B05CCCC3EA6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MrFujiBot/FujiDatabase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MrFujiBot/FujiTextHandler.cs">
     <Files>
-      <File FileName="MrFujiBot/Commands/PokemonCommand.cs" Line="39" Column="50" />
-      <File FileName="MrFujiBot/PokemonFactory.cs" Line="128" Column="40" />
-      <File FileName="MrFujiBot/Pokemon.cs" Line="18" Column="22" />
-      <File FileName="MrFujiBot/Util.cs" Line="6" Column="22" />
-      <File FileName="MrFujiBot/FujiTextHandler.cs" Line="63" Column="1" />
-      <File FileName="MrFujiBot/FujiDatabase.cs" Line="12" Column="39" />
+      <File FileName="MrFujiBot/Commands/Pokemon/Pokemon.cs" Line="1" Column="1" />
+      <File FileName="MrFujiBot/Commands/Pokemon/PokemonCommand.cs" Line="3" Column="5" />
+      <File FileName="MrFujiBot/Commands/Pokemon/PokemonFactory.cs" Line="14" Column="36" />
+      <File FileName="MrFujiBot/Commands/Move/Move.cs" Line="3" Column="22" />
+      <File FileName="MrFujiBot/Commands/Move/MoveCommand.cs" Line="31" Column="27" />
+      <File FileName="MrFujiBot/Commands/Move/MoveFactory.cs" Line="16" Column="20" />
+      <File FileName="MrFujiBot/FujiTextHandler.cs" Line="37" Column="47" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MrFujiBot" expanded="True">
             <Node name="MrFujiBot" expanded="True">
-              <Node name="Commands" expanded="True" />
-              <Node name="FujiDatabase.cs" selected="True" />
+              <Node name="Commands" expanded="True">
+                <Node name="Move" expanded="True" />
+                <Node name="Pokemon" expanded="True" />
+              </Node>
+              <Node name="FujiTextHandler.cs" selected="True" />
             </Node>
           </Node>
         </State>
