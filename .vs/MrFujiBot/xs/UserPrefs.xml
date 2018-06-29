@@ -7,7 +7,7 @@
       <File FileName="MrFujiBot/Commands/Move/Move.cs" Line="3" Column="22" />
       <File FileName="MrFujiBot/Commands/Move/MoveCommand.cs" Line="31" Column="27" />
       <File FileName="MrFujiBot/Commands/Move/MoveFactory.cs" Line="16" Column="20" />
-      <File FileName="MrFujiBot/FujiTextHandler.cs" Line="37" Column="47" />
+      <File FileName="MrFujiBot/FujiTextHandler.cs" Line="32" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
